@@ -1,5 +1,5 @@
-from sistema import Sistema
-from autenticacao import Usuario
+from src.sistema import Sistema
+from src.autenticacao import Usuario
 
 auth = Usuario()
 

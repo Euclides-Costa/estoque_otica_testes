@@ -1,5 +1,5 @@
 import bcrypt
-from banco import Banco
+from src.banco import Banco
 
 class Usuario:
 

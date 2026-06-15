@@ -1,9 +1,16 @@
 import sqlite3
+import os
 
 class Banco:
 
     def __init__(self):
-        self.conexao = sqlite3.connect("otica.db")
+        caminho_db = os.path.join(
+            os.path.dirname(os.path.dirname(__file__)),
+            "database",
+            "otica.db"
+        )
+
+        self.conexao = sqlite3.connect(caminho_db)
         self.cursor = self.conexao.cursor()
 
         self.criar_tabelas()

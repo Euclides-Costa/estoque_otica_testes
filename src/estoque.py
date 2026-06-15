@@ -1,4 +1,4 @@
-from banco import Banco
+from src.banco import Banco
 from datetime import datetime
 
 class Estoque:

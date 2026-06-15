@@ -1,7 +1,7 @@
-from produto import Produto
-from fornecedor import Fornecedor
-from estoque import Estoque
-from utils import converter_data
+from src.produto import Produto
+from src.fornecedor import Fornecedor
+from src.estoque import Estoque
+from src.utils import converter_data
 
 class Sistema:
 
