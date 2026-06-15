@@ -28,20 +28,26 @@ Este repositório contém a lógica de negócios central, a persistência de dad
 ```text
 estoque_otica_testes/
 │
-├── src/                        # Código-fonte da aplicação
+├── database/                    # Armazenamento do arquivo físico do banco de dados (ex: banco.db)
+│
+├── src/                         # Código-fonte da aplicação
 │   ├── __init__.py
-│   ├── autenticacao.py         # Módulo de login e segurança
-│   ├── estoque.py              # Regras de negócio e movimentações
-│   ├── produto.py              # Domínio e atributos do produto
-│   └── utils.py                # Funções utilitárias (conversão de dados)
+│   ├── autenticacao.py          # Gerenciamento de sessões, usuários e login seguro
+│   ├── banco.py                 # Conexão, criação de tabelas e persistência (SQLite)
+│   ├── estoque.py               # Regras de negócio para controle e fluxo de produtos
+│   ├── fornecedor.py            # Entidade e regras para gerenciamento de fornecedores
+│   ├── movimentacao.py          # Registro e lógica de histórico de entradas/saídas
+│   ├── produto.py               # Domínio, atributos e validações do produto
+│   ├── sistema.py               # Orquestrador principal / Interface de integração dos módulos
+│   └── utils.py                 # Funções utilitárias (conversão de dados e formatos)
 │
-├── tests/                      # Suíte de testes automatizados
-│   ├── conftest.py             # Configurações globais e fixtures do pytest
-│   ├── test_autenticacao.py    # Testes unitários com Mock
-│   ├── test_integracao_estoque.py
-│   ├── test_integracao_movimentacao.py
-│   ├── test_produto.py         # Testes unitários parametrizados
-│   └── test_utils.py           # Testes unitários de utilitários
+├── tests/                       # Suíte de testes automatizados
+│   ├── conftest.py              # Configurações globais, injeção de paths e fixtures do pytest
+│   ├── test_autenticacao.py     # Testes unitários do fluxo de login com uso de Mocks
+│   ├── test_integracao_estoque.py      # Testes de integração de persistência de produtos
+│   ├── test_integracao_movimentacao.py # Testes de integração do histórico de movimentações
+│   ├── test_produto.py          # Testes unitários parametrizados das regras do produto
+│   └── test_utils.py            # Testes unitários das funções de conversão
 │
-├── pytest.ini                  # Configurações de ambiente do Pytest
-└── README.md                   # Documentação do projeto
+├── pytest.ini                   # Configurações de ambiente e pythonpath do Pytest
+└── README.md                    # Documentação técnica do projeto
